@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import os
 def lsp_search():
-    front = "https://www.xiurenji.com"
+    front = "https://www.xiurenji.cc"
     header = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) '
                             'Chrome/50.0.2661.102 UBrowser/6.1.2107.204 Safari/537.36'}
 
@@ -11,7 +11,7 @@ def lsp_search():
     if search != '继续':
         search = str(search.encode('gb2312')).replace('\\x', '%').replace('\'', '')[1:]
         for page in range(1, 20):
-            search_url = 'https://www.xiurenji.com/plus/search/index.asp?keyword='+str(search)+'&searchtype=title&p=' \
+            search_url = 'https://www.xiurenji.cc/plus/search/index.asp?keyword='+str(search)+'&searchtype=title&p=' \
                         + str(page)
             url_soup = BeautifulSoup(requests.get(search_url, headers=header).content.decode("gb2312", "ignore").
                                     encode("utf-8", "ignore"), 'html.parser')
@@ -28,14 +28,14 @@ def lsp_search():
     f1 = open('./test.txt')
     lines = f1.readlines()
     for url in lines:
-        path = './' + str(url.replace('.html', '').replace('https://www.xiurenji.com/MFStar/', '')
-                        .replace('https://www.xiurenji.com/MyGirl/', '').replace('https://www.xiurenji.com/MiStar/', '')
-                        .replace('https://www.xiurenji.com/MiiTao/', '').replace('https://www.xiurenji.com/DKGirl/', '')
-                        .replace('https://www.xiurenji.com/YouMi/', '').replace('https://www.xiurenji.com/FeiLin/', '')
-                        .replace('https://www.xiurenji.com/BoLoli/', '').replace('https://www.xiurenji.com/IMiss/', '')
-                        .replace('https://www.xiurenji.com/YouWu/', '').replace('https://www.xiurenji.com/XingYan/', '')
-                        .replace('https://www.xiurenji.com/XiaoYu/', '')
-                        .replace('https://www.xiurenji.com/XiuRen/', '').replace('\n', '')).replace('"','') + '/'
+        path = './' + str(url.replace('.html', '').replace('https://www.xiurenji.cc/MFStar/', '')
+                        .replace('https://www.xiurenji.cc/MyGirl/', '').replace('https://www.xiurenji.cc/MiStar/', '')
+                        .replace('https://www.xiurenji.cc/MiiTao/', '').replace('https://www.xiurenji.cc/DKGirl/', '')
+                        .replace('https://www.xiurenji.cc/YouMi/', '').replace('https://www.xiurenji.cc/FeiLin/', '')
+                        .replace('https://www.xiurenji.cc/BoLoli/', '').replace('https://www.xiurenji.cc/IMiss/', '')
+                        .replace('https://www.xiurenji.cc/YouWu/', '').replace('https://www.xiurenji.cc/XingYan/', '')
+                        .replace('https://www.xiurenji.cc/XiaoYu/', '')
+                        .replace('https://www.xiurenji.cc/XiuRen/', '').replace('\n', '')).replace('"','') + '/'
         os.makedirs(path, exist_ok=True)
         for tmp in range(0, 91):
             if tmp > 0:
