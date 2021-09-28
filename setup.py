@@ -4,7 +4,7 @@
 from setuptools import setup
 
 setup(
-    name='lsp_search',
+    name='lsp-search',
     version='0.0.2',
     author='fenrisu1fr',
     author_email='simth.rock@8iy3.onmicrosoft.com',
